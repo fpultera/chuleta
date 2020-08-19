@@ -1,7 +1,7 @@
 # Chuletas Docker
 Tratamos de optimizar una imagen RANDOM.
 
-```
+```bash
 FROM centos
 RUN yum update -y
 RUN yum install -y wget
