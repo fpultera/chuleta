@@ -47,3 +47,24 @@ test                latest              ff5977273472        2 minutes ago       
 centos              latest              0d120b6ccaa8        11 days ago         215MB
 ```
 Ahorro de 40MB entre la imagen test y la imagen test-anidado
+
+## Dockerfile anidado
+```bash
+FROM centos
+RUN yum update -y
+RUN yum install -y wget vim nginx && yum clean all
+```
+## docker build para test
+```
+docker build-anidado -t test .
+```
+## chequeamos el peso
+```
+docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+test-clean          latest              594a1442fcb5        4 seconds ago       333MB
+test-anidado        latest              97e85cdf97b9        7 minutes ago       341MB
+test                latest              ff5977273472        10 minutes ago      385MB
+centos              latest              0d120b6ccaa8        11 days ago         215MB
+```
+Ahorro de 12MB entre la imagen test-anidado y la imagen test-clean
