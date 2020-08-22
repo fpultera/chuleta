@@ -6,7 +6,7 @@ FROM centos
 RUN yum update -y
 RUN yum install -y wget
 RUN yum install -y vim
-RUN yum install -y ngin
+RUN yum install -y nginx
 ```
 
 Los tres run que figuran no estan mal, pero van a generar en el build de la imagen tres capas diferentes con mucho peso,
@@ -27,13 +27,11 @@ test                latest              ff5977273472        3 seconds ago       
 centos              latest              0d120b6ccaa8        11 days ago         215MB
 
 ```
-Dockerfile anidado
+## Dockerfile anidado
 ```bash
 FROM centos
 RUN yum update -y
-RUN yum install -y wget
-RUN yum install -y vim
-RUN yum install -y ngin
+RUN yum install -y wget vim nginx
 ```
 
 ## docker build para test
